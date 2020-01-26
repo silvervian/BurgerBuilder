@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/BurgerBuilder/static/css/main.a551b57f.chunk.css",
+    "main.js": "/BurgerBuilder/static/js/main.a088f1e1.chunk.js",
+    "main.js.map": "/BurgerBuilder/static/js/main.a088f1e1.chunk.js.map",
+    "runtime-main.js": "/BurgerBuilder/static/js/runtime-main.f966bf48.js",
+    "runtime-main.js.map": "/BurgerBuilder/static/js/runtime-main.f966bf48.js.map",
+    "static/js/2.a8b655d9.chunk.js": "/BurgerBuilder/static/js/2.a8b655d9.chunk.js",
+    "static/js/2.a8b655d9.chunk.js.map": "/BurgerBuilder/static/js/2.a8b655d9.chunk.js.map",
+    "index.html": "/BurgerBuilder/index.html",
+    "precache-manifest.b8c62a46f94ce6a51e0acded0d9116ac.js": "/BurgerBuilder/precache-manifest.b8c62a46f94ce6a51e0acded0d9116ac.js",
+    "service-worker.js": "/BurgerBuilder/service-worker.js",
+    "static/css/main.a551b57f.chunk.css.map": "/BurgerBuilder/static/css/main.a551b57f.chunk.css.map",
+    "static/js/2.a8b655d9.chunk.js.LICENSE": "/BurgerBuilder/static/js/2.a8b655d9.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f966bf48.js",
+    "static/js/2.a8b655d9.chunk.js",
+    "static/css/main.a551b57f.chunk.css",
+    "static/js/main.a088f1e1.chunk.js"
+  ]
+}
