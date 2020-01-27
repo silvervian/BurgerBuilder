@@ -19,8 +19,16 @@ class BurderBuilder extends React.Component {
       cheese: 0,
       meat: 0
     },
-    totalPrice: 4
+    totalPrice: 4,
+    purchasable: false
   };
+
+  updatePurchaseState(ingredients) {
+    const sum = Object.keys(ingredients)
+      .map(igKey => ingredients[igKey])
+      .reduce((acc, curr) => acc + curr, 0);
+    this.setState({ purchasable: sum > 0 });
+  }
 
   addIngredientsHandler = type => {
     const oldCount = this.state.ingredients[type];
@@ -33,6 +41,7 @@ class BurderBuilder extends React.Component {
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice + priceAddition;
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
+    this.updatePurchaseState(updatedIngredients);
   };
 
   removeIngredientsHandler = type => {
@@ -49,6 +58,7 @@ class BurderBuilder extends React.Component {
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice - priceDeduction;
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
+    this.updatePurchaseState(updatedIngredients);
   };
   render() {
     const disabledInfo = {
@@ -64,6 +74,8 @@ class BurderBuilder extends React.Component {
           ingredientAdded={this.addIngredientsHandler}
           ingredientRemoved={this.removeIngredientsHandler}
           disabled={disabledInfo}
+          purchasable={this.state.purchasable}
+          price={this.state.totalPrice}
         />
       </Aux>
     );
