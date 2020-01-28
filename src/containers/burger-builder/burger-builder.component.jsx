@@ -3,6 +3,8 @@ import React from "react";
 import Aux from "../../hoc/auxillary.component";
 import Burger from "../../components/burger/burger.component";
 import BuildControls from "../../components/burger/build-controls/build-controls.component";
+import Modal from "../../components/ui/modal/modal.component";
+import OrderSummary from "../../components/order-summary/order-summary.component";
 
 const INGREDIENTS_PRICES = {
   salad: 0.5,
@@ -69,6 +71,9 @@ class BurderBuilder extends React.Component {
     }
     return (
       <Aux>
+        <Modal>
+          <OrderSummary ingredients={this.state.ingredients} />
+        </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           ingredientAdded={this.addIngredientsHandler}
