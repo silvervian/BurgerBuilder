@@ -1,9 +1,14 @@
 .logo {
+  margin-bottom: 32px;
   background-color: #fff;
   padding: 8px;
   height: 80%;
   box-sizing: border-box;
   border-radius: 10px;
+
+  @media (max-width: 500px) {
+    height: 11%;
+  }
 
   img {
     height: 100%;

@@ -12,7 +12,16 @@
   box-sizing: border-box;
   z-index: 90;
 
+  .logo {
+    height: 80%;
+    margin: 0;
+  }
+
   nav {
     height: 100%;
+
+    @media (max-width: 499px) {
+      display: none;
+    }
   }
 }
