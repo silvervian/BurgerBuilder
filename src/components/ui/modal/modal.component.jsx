@@ -7,11 +7,10 @@ import "./modal.styless.scss";
 
 class Modal extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.show !== this.props.show;
-  }
-
-  componentWillUpdate() {
-    console.log("[Modal] WillUpdate");
+    return (
+      nextProps.show !== this.props.show ||
+      nextProps.children !== this.props.children
+    );
   }
 
   render() {
