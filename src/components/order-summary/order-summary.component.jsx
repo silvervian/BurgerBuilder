@@ -5,26 +5,30 @@ import Button from "../ui/button/button.component";
 import Aux from "../../hoc/auxillary/auxillary.component";
 
 class OrderSummary extends React.Component {
+  // This could be a functional component, doesn't have to be a class
+  componentWillUpdate() {
+    console.log("[OrderSummary] WillUpdate");
+  }
+
   render() {
-    const ingredientsSummary = Object.keys(this.props.ingredients).map(
-      igKey => {
-        return (
-          <li key={igKey}>
-            <span style={{ textTransform: "capitalize" }}>{igKey}:</span>
-            {this.props.ingredients[igKey]}
-          </li>
-        );
-      }
-    );
+    const ingredientSummary = Object.keys(this.props.ingredients).map(igKey => {
+      return (
+        <li key={igKey}>
+          <span style={{ textTransform: "capitalize" }}>{igKey}</span>:{" "}
+          {this.props.ingredients[igKey]}
+        </li>
+      );
+    });
+
     return (
       <Aux>
-        <h3>Your Burger</h3>
-        <p>A delicious burger with following ingredients:</p>
-        <ul>{ingredientsSummary}</ul>
-        <p>Continue to Checkout?</p>
+        <h3>Your Order</h3>
+        <p>A delicious burger with the following ingredients:</p>
+        <ul>{ingredientSummary}</ul>
         <p>
-          <strong>Total Price: {this.props.price.toFixed(2)}$</strong>
+          <strong>Total Price: {this.props.price.toFixed(2)}</strong>
         </p>
+        <p>Continue to Checkout?</p>
         <Button btnType="danger" clicked={this.props.purchaseCancelled}>
           CANCEL
         </Button>
