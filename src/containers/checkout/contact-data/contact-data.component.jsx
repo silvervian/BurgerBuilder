@@ -8,21 +8,16 @@ import "./contact-data.styles.scss";
 
 class ContactData extends React.Component {
   state = {
-    name: "",
-    email: "",
-    address: {
-      street: "",
-      ZipCode: ""
-    }
+    loading: false
   };
 
   orderHandler = event => {
     event.preventDefault();
-    console.log("cze", this.props.ingredients);
+    console.log(this.props);
     this.setState({ loading: true });
     const order = {
       ingredients: this.props.ingredients,
-      price: this.props.totalPrice,
+      price: this.props.price,
       customer: {
         name: "Max Schwarzmüller",
         address: {
