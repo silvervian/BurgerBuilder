@@ -9,6 +9,11 @@
   margin: 10px;
   font-weight: bold;
 
+  &:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+
   &:first-of-type {
     margin-left: 0;
     padding-left: 0;
