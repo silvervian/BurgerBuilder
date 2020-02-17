@@ -1,30 +1,11 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 import ContactData from "./contact-data/contact-data.component";
 import CheckoutSummary from "../../components/order/checkout-summary/checkout-summary.component";
 
 class Checkout extends React.Component {
-  state = {
-    ingredients: null,
-    totalPrice: 0
-  };
-
-  componentWillMount() {
-    const query = new URLSearchParams(this.props.location.search);
-    const ingredients = {};
-    let price = 0;
-    for (let param of query.entries()) {
-      // ['salad','1']
-      if (param[0] === "price") {
-        price = param[1];
-      } else {
-        ingredients[param[0]] = +param[1];
-      }
-    }
-    this.setState({ ingredients: ingredients, totalPrice: price });
-  }
-
   checkoutCancelledHandler = () => {
     this.props.history.goBack();
   };
@@ -33,26 +14,30 @@ class Checkout extends React.Component {
   };
 
   render() {
-    return (
-      <div>
-        <CheckoutSummary
-          ingredients={this.state.ingredients}
-          CheckoutCancelled={this.checkoutCancelledHandler}
-          CheckoutContinue={this.checkoutContinueHandler}
-        />
-        <Route
-          path={`${this.props.match.path}/contact-data`}
-          render={props => (
-            <ContactData
-              ingredients={this.state.ingredients}
-              price={this.state.totalPrice}
-              {...props}
-            />
-          )}
-        />
-      </div>
-    );
+    let summary = <Redirect to="/" />;
+    if (this.props.ings) {
+      summary = (
+        <React.Fragment>
+          <CheckoutSummary
+            ingredients={this.props.ings}
+            CheckoutCancelled={this.checkoutCancelledHandler}
+            CheckoutContinue={this.checkoutContinueHandler}
+          />
+          <Route
+            path={`${this.props.match.path}/contact-data`}
+            component={ContactData}
+          />
+        </React.Fragment>
+      );
+    }
+    return summary;
   }
 }
 
-export default Checkout;
+const mapStateToProps = state => {
+  return {
+    ings: state.ingredients
+  };
+};
+
+export default connect(mapStateToProps)(Checkout);
