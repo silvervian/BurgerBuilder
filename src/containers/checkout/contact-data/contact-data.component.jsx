@@ -49,7 +49,7 @@ class ContactData extends React.Component {
         validation: {
           required: true,
           minLength: 5,
-          maxLength: 5
+          maxLength: 6
         },
         valid: false,
         touched: false
@@ -146,7 +146,7 @@ class ContactData extends React.Component {
       orderData: formData
     };
 
-    this.props.onOrderBurger(order);
+    this.props.onOrderData(order);
   };
 
   inputChangedHandler = (event, inputId) => {
@@ -212,9 +212,9 @@ class ContactData extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    ings: state.ingredients,
-    price: state.totalPrice,
-    loading: state.loading
+    ings: state.burgerBuilder.ingredients,
+    price: state.burgerBuilder.totalPrice,
+    loading: state.order.loading
   };
 };
 
