@@ -142,11 +142,11 @@ class ContactData extends React.Component {
     }
     const order = {
       ingredients: this.props.ings,
-      price: this.props.price,
+      price: this.props.price.toFixed(2),
       orderData: formData
     };
 
-    this.props.onOrderData(order);
+    this.props.onOrderData(order, this.props.token);
   };
 
   inputChangedHandler = (event, inputId) => {
@@ -214,13 +214,15 @@ const mapStateToProps = state => {
   return {
     ings: state.burgerBuilder.ingredients,
     price: state.burgerBuilder.totalPrice,
-    loading: state.order.loading
+    loading: state.order.loading,
+    token: state.auth.token
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onOrderData: orderData => dispatch(actions.purchaseBurger(orderData))
+    onOrderData: (orderData, token) =>
+      dispatch(actions.purchaseBurger(orderData, token))
   };
 };
 
