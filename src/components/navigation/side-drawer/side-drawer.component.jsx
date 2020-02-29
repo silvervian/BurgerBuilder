@@ -13,7 +13,7 @@ const SideDrawer = props => {
       <Backrop show={props.open} clicked={props.closed} />
       <div className={`side-drawer  ${props.open ? "open" : "close"}`}>
         <Logo />
-        <NavigationItems />
+        <NavigationItems isAuth={props.isAuth} />
       </div>
     </Aux>
   );
