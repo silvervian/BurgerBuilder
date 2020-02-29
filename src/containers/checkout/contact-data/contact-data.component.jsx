@@ -135,7 +135,6 @@ class ContactData extends React.Component {
 
   orderHandler = event => {
     event.preventDefault();
-    console.log(this.props);
     const formData = {};
     for (let formElementId in this.state.orderForm) {
       formData[formElementId] = this.state.orderForm[formElementId].value;

@@ -1,5 +1,5 @@
 .burger {
-  width: 100%;
+  width: 90%;
   margin: auto auto 10px auto;
   min-height: 250px;
   text-align: center;
@@ -11,17 +11,7 @@
   }
 
   @media (min-width: 500px) and (min-height: 400px) {
-    width: 350px;
-    min-height: 200px;
-  }
-
-  @media (min-width: 500px) and (min-height: 401px) {
-    width: 450px;
-    min-height: 200px;
-  }
-
-  @media (min-width: 1000px) and (min-height: 700px) {
-    width: 700px;
+    width: 500px;
     min-height: 200px;
   }
 }

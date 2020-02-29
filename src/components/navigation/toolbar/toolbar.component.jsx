@@ -10,7 +10,9 @@ const Toolbar = props => (
   <header className="toolbar">
     <DrawerToggle clicked={props.drowerToggleClicked} />
     <Logo />
-    <NavigationItems isAuth={props.isAuth} />
+    <nav>
+      <NavigationItems isAuth={props.isAuth} />
+    </nav>
   </header>
 );
 
