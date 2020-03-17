@@ -18,9 +18,10 @@ const Checkout = React.lazy(() =>
 const Auth = React.lazy(() => import("./containers/auth/auth.component"));
 
 const App = props => {
+  const { onTryAutoSignup } = props;
   useEffect(() => {
-    props.onTryAutoSignup();
-  }, [props]);
+    onTryAutoSignup();
+  }, [onTryAutoSignup]);
 
   let routes = (
     <Switch>
